@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import style from './login.css';
+import './login.css';
 import axios from 'axios';
 
 class login extends React.Component {
@@ -20,7 +20,7 @@ return (
 		<h1 className="account-body-title login-label-phone">
 			<a className="cancel icon login-cancel"></a>
 			<span className="account-body-text">登录</span>
-			<span className="account-body-tips">登录注册表示同意 <a target="_blank" href="https://accounts.douban.com/passport/agreement">豆瓣使用协议、隐私政策</a></span>
+			<span className="account-body-tips">登录注册表示同意 <a  href="https://accounts.douban.com/passport/agreement">豆瓣使用协议、隐私政策</a></span>
 		</h1>
 		<div className="account-form">
 			<fieldset>
@@ -39,7 +39,8 @@ return (
 				<div className="account-form-ft">
 					<div className="account-form-switch ">
 						<a className="login-label-account " onClick={()=>{
-							this.props.history.push( '/register',null)
+							this.props.history.push({ pathname: "register"}) 
+
 						}}>去注册</a>
 					</div>
 				</div>
@@ -73,7 +74,7 @@ return (
 					.get(`https://www.apiopen.top/login?key=00d91e8e0cca2b76f515926a36db68f5 &phone=${this.state.username}&passwd=${this.state.psw}`)
 					.then(response => {
 						console.log(response.data.msg);
-						if (response.data.msg == '成功!') {
+						if (response.data.msg === '成功!') {
 							console.log(response.data.data.name);
 							this.props.history.push( '/',null)
 						} else {
