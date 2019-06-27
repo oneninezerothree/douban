@@ -1,3 +1,5 @@
+/* eslint-disable react/no-direct-mutation-state */
+/* eslint-disable no-redeclare */
 import React, { Component } from 'react';
 import Header from '../../components/header/Header.js';
 import more from './more.scss';
@@ -16,52 +18,82 @@ export default class More extends Component {
 
     requestData = () => {
         var biaoti = this.props.match.params.title;
-        if(biaoti == '豆瓣电影Top250'){
-            var api = "https://api.douban.com/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=9"
+        if(this.props.match.params.title === '豆瓣电影Top250'){
+            var api = "https://api.douban.com/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b&start="+this.state.page+"&count=9"
             fetchJSONP(api)
                 .then(response=>response.json())
                 .then(data=>{
-                    this.setState({
-                        load:true,
-                        list:data
-                    })
-                    console.log(this.state.list)
+                    if(this.state.page > 0){
+                        this.state.list.subjects = [...this.state.list.subjects,...data.subjects] || [];
+                    }else{
+                        this.setState({
+                            load:true,
+                            list:data
+                        })
+                    }
                 })
-        }else if(biaoti == '即将上映的电影'){
-            var api = "https://api.douban.com/v2/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=9"
+        }else if(this.props.match.params.title === '即将上映的电影'){
+            var api = "https://api.douban.com/v2/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&start="+this.state.page+"&count=9"
             fetchJSONP(api)
                 .then(response=>response.json())
                 .then(data=>{
-                    this.setState({
-                        load:true,
-                        list:data
-                    })
-                    console.log(this.state.list)
+                    if(this.state.page > 0){
+                        this.state.list.subjects = [...this.state.list.subjects,...data.subjects] || [];
+                    }else{
+                        this.setState({
+                            load:true,
+                            list:data
+                        })
+                    }
                 })
         }else{
-           var api = "https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city="+biaoti+"&start=0&count=9"
+           var api = "https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city="+biaoti+"&start="+this.state.page+"&count=9"
             fetchJSONP(api)
                 .then(response=>response.json())
-                .then(data=>{
-                    this.setState({
-                        load:true,
-                        list:data
-                    })
-                    console.log(this.state.list)
+                .then(data=>{    
+                    if(this.state.page > 0){
+                        this.state.list.subjects = [...this.state.list.subjects,...data.subjects] || [];
+                    }else{
+                        this.setState({
+                            load:true,
+                            list:data
+                        })
+                    }
+                    
                 }) 
             }
         
     }
 
     componentDidMount(){
-        console.log(this.props.match.params.title);
+        // console.log(this.props.match.params.title);
         this.requestData()
         window.addEventListener('scroll', this.handleScroll);
     }
 
-    handleScroll(){
-        console.log(window.scrollY,window.innerHeight,window.scrollHeight)
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+        this.setState({load:false})
+    }
+
+    handleScroll = (e) => {
+        // console.log(e.srcElement.scrollingElement.scrollHeight,e.srcElement.scrollingElement.scrollTop,e.srcElement.scrollingElement.clientHeight)
+        if(e.srcElement.scrollingElement.scrollTop+e.srcElement.scrollingElement.clientHeight+1 >= e.srcElement.scrollingElement.scrollHeight){
+            this.setState({page:this.state.page+1});
+            this.requestData()
+        }
       }
+
+    xingxing(num){
+        var xx = [];
+        for(var i=0;i<num;i++){
+            xx.push(<span className={more.ratingstarsmallfull} key={i}></span>)
+        }
+        for(var j=0;j<5-num;j++){
+            xx.push(<span className={more.ratingstarsmallgray} key={j+65}></span>)
+        }       
+        return xx;
+    }
 
     render() {
         if(this.state.load){
@@ -85,14 +117,21 @@ export default class More extends Component {
                                             <div className={more.info}>
                                                 <h3>{item.title}</h3>
                                                 <p className={more.rank}>
-                                                    <span className={more.ratingstars} data-rating="4.7">
+                                                <span className={more.ratingstars} data-rating="4.7">
+                                                    {
+                                                        this.xingxing(parseInt(item.rating.stars/10)).map((item,index)=>{
+                                                            return item
+                                                        })
+                                                    }
+                                                    {/* 
                                                         <span className={more.ratingstarsmallfull}></span>
                                                         <span className={more.ratingstarsmallfull}></span>
                                                         <span className={more.ratingstarsmallfull}></span>
                                                         <span className={more.ratingstarsmallfull}></span>
                                                         <span className={more.ratingstarsmallfull}></span>
+                                                     */}
                                                     </span> 
-                                                    <span className={more.fen}>9.3</span>
+                                                    <span className={more.fen}>{item.rating.average}</span>
                                                 </p>
                                             </div>
                                         </a>

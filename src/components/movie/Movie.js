@@ -9,7 +9,8 @@ export default class Movie extends Component {
         super(props);
         this.state={
             movieList:[],
-            list:[]
+            list:[],
+            xingxing:[]
         }
     }
 
@@ -18,26 +19,41 @@ export default class Movie extends Component {
         fetchJSONP("https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=广州&start=0&count=10")
             .then(response=>response.json())
             .then(data=>{
-                this.setState({movieList:[data]})
-                fetchJSONP("https://api.douban.com/v2/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=10")
-                .then(response=>response.json())
-                .then(data=>{
-                    this.state.movieList.push(data);
-                    fetchJSONP("https://api.douban.com/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=10")
-                    .then(response=>response.json())
-                    .then(data=>{
-                        this.state.movieList.push(data);
-                        this.setState({movieList:this.state.movieList})
-                        console.log(this.state.movieList)
-                    })
-                })  
+                this.state.movieList.push(data);
+                // this.setState({movieList:[data]})
+                this.setState({movieList:this.state.movieList})
             })
+        fetchJSONP("https://api.douban.com/v2/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=10")
+        .then(response=>response.json())
+        .then(data=>{
+            this.state.movieList.push(data);
+            this.setState({movieList:this.state.movieList})
+        }) 
         
+        fetchJSONP("https://api.douban.com/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b&start=0&count=10")
+        .then(response=>response.json())
+        .then(data=>{
+            this.state.movieList.push(data);
+            this.setState({movieList:this.state.movieList})
+            console.log(this.state.movieList)
+        })
         
     }
 
     componentDidMount(){
         this.requestData();
+    }
+
+    xingxing(num){
+        var xx = [];
+        for(var i=0;i<num;i++){
+            xx.push(<span className={movie.ratingstarsmallfull} key={i+1}></span>)
+        }
+        for(var j=0;j<5-num;j++){
+            xx.push(<span className={movie.ratingstarsmallgray} key={j+6546}></span>)
+        }    
+
+        return xx;
     }
 
     render() {
@@ -63,13 +79,12 @@ export default class Movie extends Component {
                                                                 <span className={movie.itemtitle}>{item.title}</span>
                                                                 <div className={movie.itemrating}>
                                                                     <div className={movie.rank}>
-                                                                <span className={movie.ratingstars} data-rating="4.7" >
-                                                                    <span className={movie.ratingstarsmallfull}></span>
-                                                                    <span className={movie.ratingstarsmallfull}></span>
-                                                                    <span className={movie.ratingstarsmallfull}></span>
-                                                                    <span className={movie.ratingstarsmallfull}></span>
-                                                                    <span className={movie.ratingstarsmallfull}></span>
-                                                                
+                                                                <span className={movie.ratingstars} data-rating="4.7">
+                                                                    {
+                                                                        this.xingxing(parseInt(item.rating.stars/10)).map(item=>{
+                                                                            return item
+                                                                        })
+                                                                    }
                                                                 </span> 
                                                                 <span className={movie.fen}>{item.rating.average}</span>
                                                                     </div>
