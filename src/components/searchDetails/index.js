@@ -16,7 +16,9 @@ componentDidMount(){
 }
 
 changList() {
-	this.getList(`http://v.juhe.cn/movie/index?title=${this.refs.keyText.value}&key=b151b1f4a3573de9a3d17d4f0243479c&smode=0`)
+	if(this.refs.keyText.value){
+		this.getList(`http://v.juhe.cn/movie/index?title=${this.refs.keyText.value}&key=b151b1f4a3573de9a3d17d4f0243479c&smode=0`)
+	}
 }
 
 render() {
@@ -41,7 +43,7 @@ return (
 							<h3 className="movietitle">{item.title}</h3>
 							<p className="movieSource">
 								<span className="country">{item.country}</span>
-								<span className="language">{item.language}</span>
+								<span className="language">{item.genres}</span>
 							</p>
 							<p className="describe"><span>主演:</span>{item.actors}</p>
 							<span className="year"><i>上映年份: </i>{item.year}</span>

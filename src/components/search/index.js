@@ -55,10 +55,10 @@ return (
 		</ul>
 		<div className="navBottom">
 			<div className="nav-item">
-				<a className="toLogin" href="">登录豆瓣</a>
+				<a className="toLogin" href="/#/login">登录豆瓣</a>
 			</div>
 			<div className="nav-item">
-				<a className="toPC" href="">使用桌面版</a>
+				<a className="toPC">使用桌面版</a>
 				<a href="" className="toApp">使用豆瓣App</a>
 			</div>
 		</div>

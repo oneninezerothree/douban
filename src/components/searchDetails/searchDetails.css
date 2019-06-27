@@ -46,7 +46,7 @@
 }
 
 .movieSource {
-	width: 100px;
+	width: 180px;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
