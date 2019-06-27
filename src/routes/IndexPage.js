@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'dva';
-import styles from './IndexPage.css';
+import Header from '../components/header/Header.js';
+import Movie from '../components/movie/Movie.js';
 
 function IndexPage() {
   return (
     <div>
-      asd
+      <Header />
+      <Movie />
     </div>
   );
 }

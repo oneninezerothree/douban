@@ -1,0 +1,255 @@
+.moviepage{
+    max-width: 650px;
+    padding-top: 47px;
+    background: #fff;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.moviecard{
+    margin: 0;
+}
+section:first-child {
+    padding-top: 10px;
+}
+
+section {
+    margin: 0;
+    overflow: hidden;
+    background-color: #fff;
+    margin-bottom: 20px;
+    display: block;
+}
+
+section header {
+    padding: 0 1.12rem;
+}
+section h2 {
+    display: inline-block;
+    min-width: 4em;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #111;
+    padding-left: 0;
+    padding-bottom: 0;
+    font-size: 1.06rem;
+}
+
+h2 {
+    color: #aaa;
+    margin: 0 0 15px;
+    font-size: 15px;
+}
+section header a {
+    float: right;
+    font-size: .9rem;
+    line-height: 1.5rem;
+}
+section .sectioncontent {
+    margin-bottom: -1.12rem;
+}
+.row {
+    border-bottom: 1px solid #F2F2F2;
+    padding: 15px 0 20px 0;
+    width: 100%;
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.items {
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+* {
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.item:first-child {
+    margin-left: 1.12rem;
+}
+.item {
+    margin-left: 0.48rem;
+}
+
+.item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.items>* {
+    font-size: .94rem;
+    white-space: normal;
+}
+.item a {
+    color: #111;
+}
+.itemposter {
+    width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+.item:not(.item__celebrity .itemtitle) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item__movie .itemtitle {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.itemtitle {
+    display: block;
+    margin-top: .6rem;
+    line-height: .94rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    word-wrap: normal;
+    font-size: 14px;
+}
+.itemrating {
+    color: #aaa;
+    line-height: .94rem;
+    margin-top: .3rem;
+    font-size: .72rem;
+}
+.ratingstars {
+    display: inline-block; 
+}
+.ratingstarsmallfull, .ratingstarsmallhalf, .ratingstarsmallgray {
+    width: 10px;
+    height: 10px;
+    background-size: 10px 10px;
+}
+.ratingstars .ratingstar {
+    display: inline-block;
+    margin-right: 1px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+.ratingstarsmallfull {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAfhJREFUOBGlVD1LHFEUPXfWrzGJO2uhaIQ0iljESgKSpAjBwpXVKikEl6TzD6TwJ4gWaQMBS8WQgCRZ61QpglUgRbQUbMR1XfwodvbmvE1mdt/ssDPBC493733nnrkf7w2QQrSU29D9wY8poJAkkG6hD8O5E+IGgJsHkr8+7hTjdDpsnA0PLkHE4yK2r5iETyYUfdUkkRa96W3VOhLqXv8oFHNhgGCC/Xwc2jFKR0J0966w1IwVp/LasiNGOBTdxV24bhbqenCQRUY9qLzl2CasGEUVdbyA1M5R1wrq/gUqVxUp4tLghCX85D7VlonFksJQ9Un3w5S8c2sy8z3TGtGDRsla8op0vKe3O0UuMRBVDm9N8uX1Zg/3s8+hmU/sGS/wf8kN0UWZP/tgokJCY+jX3ENmWqJ3zNiJonoKXxalcPY9wFqExqmf3fvIuL+SM2WZNX9SCheHAZnZ2++h9FyxufdaQfG6CBznTvQshtDhSyA4jQieRmExhO2gaFBoi5OK8EkYECiqX9jdd1wauP7tbVgrw8a/TzETBpkp1nWZ96sg8+VV8j0j6VF4Dozo3sB4ix0ZypD3iO3r+QvQbfi1KVkobwcBkj//hmp5msSbXHxqlC67bCtDDr2fN/43wYvMaFkK1dOALNjlJa6Z8RuIP0vfAZfVhj/iqoy46fpKwgAAAABJRU5ErkJggg==");
+    width: 10px;
+    height: 10px;
+    background-size: 10px 10px;
+}
+.itemposter:before {
+    content: "";
+    float: left;
+    margin-top: 142.85714%;
+}
+.ratingstarsmallgray{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAeRJREFUOBGtlDsvBFEUx3d2djfiMbTsQ0NEwTaiQSGiRKWREDofgMJHEAqdSPSE0BC9SiEqWQWSzT4SzSbrsR7Fzo7fEXfNg9klbjI5j/s/vzn3MRMI1DFyudxaPp8/qEMa0GqJ0ul0QzgcvtM0zbAsqzMWi+X9aoJ+kzIXiUSmgLXhinZOcn6jJpDieRvA7tvSX64vMJvNdiAdV3I67c5kMkMq/s76AgHMUqTbC0Oh0II9dvvVQ0mlUs2GYbRWKpU2ij4swA3pylX0ZJrmNPn7crn8oOv6Y7FYfEgmk8+i07gOl0z24js6cUHqCU1uwbksefcfYPJCHeDFx5LpUq7DNp2GZeYPw2KrVuLx+Gp1D4GOATwEZvwGSFdv6Oe48PtSVwVKwCfWB/SEJyZxHaMAcBLYmdI6gJIEGg0Gg1e4tTqVZfawzBsFE+u5h4heyLfYRT/4LERrcs95gNwr+RI8nbsLJWa5I+68B8hbPSJ3kYq/03qAvHVYFShL7phni9hSuU/r0TqA8u9DOGArKvCZzXCKEzyL7O8o4Fs1T4ftHGKXisU6gOzfIKLIp2CnVCr1JhKJHVXAiZ4C7Ae8Ts6UPDfCsUUhJRYLrJGCa+xSNBo9ss8pH+gr/jK/tj0a2ETv2IZ35FSkS7HbzakAAAAASUVORK5CYII=");
+}
+.clearfix:after, .card section>header:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+.interests ul {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 15px 15px 43px 15px;
+    font-size: 0;
+    margin-left: -5px;
+    -webkit-overflow-scrolling: touch;
+}
+.interests li {
+    margin: 0 0 8px 8px;
+    font-size: .94rem;
+    display: inline-block;
+    border-radius: .25rem;
+    border: solid 1px;
+    vertical-align: middle;
+}
+.interests a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1.55rem;
+    letter-spacing: .1em;
+    overflow: auto;
+    display: block;
+    text-align: center;
+}
+.interests li.line {
+    width: 100%;
+    display: block;
+    height: 1px;
+    border: 0;
+    margin: 0;
+}
+.types {
+    margin-right: -25px;
+}
+.typelist {
+    padding: 1.12rem 0 1.88rem;
+    color: #eee;
+    font-size: .9rem;
+    overflow: hidden;
+}
+.typelist li {
+    width: 41.5%;
+    border-top: solid 1px #eee;
+    border-right: solid 1px #eee;
+    float: left;
+    padding-right: 1.12rem;
+    height: 2.64rem;
+}
+.typelist a {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    line-height: 2.64rem;
+}
+.typelist span {
+    color: #ccc;
+    float: right;
+    font-weight: bold;
+    display: inline-block;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    width: .5rem;
+    height: .5rem;
+    transform: rotate(-45deg);
+    margin-top: 1rem;
+}
+.types .sectioncontent {
+    margin-left: .94rem;
+}
+.fen{
+    vertical-align: middle;
+    margin-left: 3px;
+}
