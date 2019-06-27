@@ -4,6 +4,8 @@ import IndexPage from './routes/IndexPage';
 import details from './components/details';
 import login from './components/login';
 import register from './components/register';
+import search from './components/search';
+import searchDetails from './components/searchDetails';
 
 function RouterConfig({ history }) {
   return (
@@ -13,6 +15,8 @@ function RouterConfig({ history }) {
         <Route path="/details" exact component={details} />
 				<Route path="/login" exact component={login} />
 				<Route path="/register" exact component={register} />
+				<Route path="/search" exact component={search} />
+				<Route path="/searchDetails/:keyword" exact component={searchDetails} />
       </Switch>
     </Router>
   );
