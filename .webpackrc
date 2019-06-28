@@ -1,9 +1,3 @@
 {
-"extraBabelPlugins": [
-    ["import", { 
-    "libraryName": "antd",
-    "libraryDirectory": "es",
-    "style": true
-    }]
-  ]
+	"disableCSSModules": true
 }

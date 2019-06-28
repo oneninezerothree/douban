@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import movie from './movie.scss';
+import './movie.scss';
 import { Link } from 'dva/router';
 import fetchJSONP from 'fetch-jsonp'
 
@@ -44,10 +44,10 @@ export default class Movie extends Component {
     xingxing(num) {
         var xx = [];
         for (var i = 0; i < num; i++) {
-            xx.push(<span className={movie.ratingstarsmallfull} key={i + 1}></span>)
+            xx.push(<span className="ratingstarsmallfull" key={i + 1}></span>)
         }
         for (var j = 0; j < 5 - num; j++) {
-            xx.push(<span className={movie.ratingstarsmallgray} key={j + 6546}></span>)
+            xx.push(<span className="ratingstarsmallgray" key={j + 6546}></span>)
         }
 
         return xx;
@@ -55,9 +55,9 @@ export default class Movie extends Component {
 
     render() {
         return (
-            <div className={movie.movie}>
-                <div className={movie.moviepage}>
-                    <div className={movie.moviecard}>
+            <div className="movie">
+                <div className="moviepage">
+                    <div className="moviecard">
                         {
                             this.state.movieList.map((item, index) => {
                                 return (
@@ -66,25 +66,25 @@ export default class Movie extends Component {
                                             <h2>{item.title}</h2>
                                             <Link to={`/movie/more/${item.title}`}>更多</Link>
                                         </header>
-                                        <div className={movie.sectioncontent}>
-                                            <ul className={movie.row}>
+                                        <div className="sectioncontent">
+                                            <ul className="row">
                                                 {
                                                     item.subjects.map((item, index) => {
                                                         return (
-                                                            <li className={movie.item} key={index}>
+                                                            <li className="item" key={index}>
                                                                 <Link to={`details/${item.id}`}>
-                                                                    <div className={movie.itemposter} style={{ "backgroundImage": `url(${item.images.large})` }}></div>
-                                                                    <span className={movie.itemtitle}>{item.title}</span>
-                                                                    <div className={movie.itemrating}>
-                                                                        <div className={movie.rank}>
-                                                                            <span className={movie.ratingstars} data-rating="4.7">
+                                                                    <div className="itemposter" style={{ "backgroundImage": `url(${item.images.large})` }}></div>
+                                                                    <span className="itemtitle">{item.title}</span>
+                                                                    <div className="itemrating">
+                                                                        <div className="rank">
+                                                                            <span className="ratingstars" data-rating="4.7">
                                                                                 {
                                                                                     this.xingxing(parseInt(item.rating.stars / 10)).map(item => {
                                                                                         return item
                                                                                     })
                                                                                 }
                                                                             </span>
-                                                                            <span className={movie.fen}>{item.rating.average}</span>
+                                                                            <span className="fen">{item.rating.average}</span>
                                                                         </div>
                                                                     </div>
                                                                 </Link>
@@ -99,11 +99,11 @@ export default class Movie extends Component {
                                 )
                             })
                         }
-                        <section className={movie.interests}>
+                        <section className="interests">
                             <header>
                                 <h2>发现好电影</h2>
                             </header>
-                            <div className={movie.sectioncontent}>
+                            <div className="sectioncontent">
                                 <ul>
                                     <li style={{ borderColor: '#4F9DED' }}>
                                         <a href="###" style={{ color: '#4F9DED' }}>同时入选IMDB250和豆瓣电影250的电影</a>
@@ -117,7 +117,7 @@ export default class Movie extends Component {
                                     <li style={{ borderColor: '#FFC46C' }}>
                                         <a href="###" style={{ color: '#FFC46C' }}>女孩们的故事【电影】</a>
                                     </li>
-                                    <li className={movie.line}></li>
+                                    <li className="line"></li>
                                     <li style={{ borderColor: '#42BD56' }}>
                                         <a href="###" style={{ color: '#42BD56' }}>
                                             使用 App 【找电影】功能
@@ -141,12 +141,12 @@ export default class Movie extends Component {
                             </div>
                         </section>
 
-                        <section className={movie.types}>
+                        <section className="types">
                             <header>
                                 <h2>分类浏览</h2>
                             </header>
-                            <div className={movie.sectioncontent}>
-                                <ul className={movie.typelist}>
+                            <div className="sectioncontent">
+                                <ul className="typelist">
                                     <li><a href="###">经典<span></span></a></li>
                                     <li><a href="###">冷门佳片<span></span></a></li>
                                     <li><a href="###">豆瓣高分<span></span></a></li>

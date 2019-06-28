@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import '../../index.css';
-import style from './details.scss';
+import './details.scss';
 import requires from '../../utils/require';
 import Header from '../header/Header';
 
@@ -16,24 +16,24 @@ class details extends Component {
 			return (
 				<div>
 				<Header />
-				<div className={style.page}>
-					<div className={style.card}>
-						<h1 className={style.title}>{this.state.content.title}</h1>
-						<div className={style.subjectInfo}>
-							<div className={style.right}>
+				<div className="page">
+					<div className="card">
+						<h1 className="title">{this.state.content.title}</h1>
+						<div className="subjectInfo">
+							<div className="right">
 								<a href="javascript:void(0);">
 									<img src={this.state.content.images.large} alt="" />
 								</a>
 							</div>
-							<div className={style.left}>
-								<p className={style.rating}>
-									<span className={style.ratingStars}>
+							<div className="left">
+								<p className="rating">
+									<span className="ratingStars">
 										{this.state.xin}
 									</span>
 									<strong>{this.state.content.rating.average}</strong>
 									<span>{this.state.content.ratings_count}人评价</span>
 								</p>
-								<p className={style.meta}>
+								<p className="meta">
 									{this.state.content.durations[0] ? this.state.content.durations[0] + ' / ' : ''}
 									{this.state.content.genres.map((item) => {
 										return item;
@@ -44,8 +44,8 @@ class details extends Component {
                                 </p>
 							</div>
 						</div>
-						<section className={style.subjectMark}>
-							<div className={style.markItem}>
+						<section className="subjectMark">
+							<div className="markItem">
 								<a href="javascript:void(0);">
 									<span>想看</span>
 								</a>
@@ -54,9 +54,9 @@ class details extends Component {
 								</a>
 							</div>
 						</section>
-						{this.state.content.summary ? <section className={style.subjectIntro}>
+						{this.state.content.summary ? <section className="subjectIntro">
 							<h2>{this.state.content.title}的剧情简介</h2>
-							<div className={style.bd} style={{ position: 'static' }}>
+							<div className="bd" style={{ position: 'static' }}>
 								<p onClick={this.written}>
 									{this.state.words ? this.state.content.summary.slice(0, -3) : this.state.content.summary.slice(0, 63) + '...'}
 									{this.state.words ? '' : <a href="javascript:void(0);" style={{ float: 'right' }}>(展开)</a>}
@@ -67,18 +67,18 @@ class details extends Component {
 							<header>
 								<h2>影人</h2>
 							</header>
-							<div className={style.sectionContent}>
-								<ul className={`${style.row} ${style.items}`}>
+							<div className="sectionContent">
+								<ul className="row items">
 									{this.state.performer.map((item) => {
 										return (
-											<li className={`${style.item} ${style.itemCelebrity}`} key={item.id}>
+											<li className="item itemCelebrity" key={item.id}>
 												<a href={item.alt}>
-													<div className={style.itemPoster} style={{
+													<div className="itemPoster" style={{
 														backgroundImage: `url(${item.img})`
 													}}>
 													</div>
-													<span className={`${style.itemTitle} ${style.name}`}>{item.name}</span>
-													<span className={`${style.itemTitle} ${style.role}`}>{item.position}</span>
+													<span className="itemTitle name">{item.name}</span>
+													<span className="itemTitle role">{item.position}</span>
 												</a>
 											</li>
 										)
@@ -86,38 +86,38 @@ class details extends Component {
 								</ul>
 							</div>
 						</section>
-						<section className={style.subjectPics}>
+						<section className="subjectPics">
 							<h2>
 								<span>{this.state.content.title}的</span>
 								<span>预告片</span>
 								<span>和</span>
 								<span>图片</span>
 							</h2>
-							<div className={`${style.bd} ${style.photoList}`}>
-								<ul className={style.wxPreview}>
+							<div className="bd photoList">
+								<ul className="wxPreview">
 									{this.state.content.trailers.length != 0 ?
-										<li className={`${style.video} ${style.videoTrailer}`} style={{
+										<li className="video videoTrailer" style={{
 											backgroundImage: 'url(' + this.state.content.trailers[0].small + ')'
 										}}
 										>
 											<a href={this.state.content.trailers[0].alt}>
-												<span className={style.span}>
+												<span className="span">
 													<img src="https://img3.doubanio.com/f/talion/b6df390a5411896e81ad9be86a97121c17d4c805/pics/card/play-button.png" />
 												</span>
 											</a>
-											<div className={style.time}>01:51</div>
+											<div className="time">01:51</div>
 										</li>
 										: ''}
 									{this.state.content.photos.map((item, index) => {
 										return (
-											<li className={style.pic} key={index}>
+											<li className="pic" key={index}>
 												<a href={item.alt}>
 													<img src={item.image} />
 												</a>
 											</li>
 										)
 									}).slice(0, 5)}
-									<div className={style.movieGallery}>
+									<div className="movieGallery">
 										<a href="/movie/subject/1291561/all_photos">
 											<li><span>查看全部剧照/海报/壁纸</span></li>
 										</a>
@@ -125,41 +125,41 @@ class details extends Component {
 								</ul>
 							</div>
 						</section>
-						<section className={style.subjectComments}>
+						<section className="subjectComments">
 							<h2>{this.state.content.title}的短评({this.state.content.comments_count})</h2>
-							<div className={style.bd} id="comment-list">
-								<ul className={`${style.list} ${style.commentList}`}>
+							<div className="bd" id="comment-list">
+								<ul className="list commentList">
 									{this.state.content.popular_comments.map((item) => {
 										let arr = () => {
 											let a = []
 											for (let i = 1; i <= item.rating.value; i++) {
-												a.push(<span key={i} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
+												a.push(<span key={i} className="ratingStar ratingStarMediumFull"></span>)
 											}
 											for (let i = item.rating.value + 1; i <= item.rating.max; i++) {
-												a.push(<span key={i} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+												a.push(<span key={i} className="ratingStar ratingStarMediumGray"></span>)
 											}
 											return a;
 										}
 										return (
 											<li key={item.author.id}>
-												<div className={style.desc}>
+												<div className="desc">
 													<a href="javascript:viod(0)">
 														<img src={item.author.avatar} alt="zing" />
 													</a>
-													<div className={style.userInfo}>
+													<div className="userInfo">
 														<strong>{item.author.name}</strong>
-														<span className={style.ratingStars}>
+														<span className="ratingStars">
 															{arr()}
 														</span>
-														<div className={style.date}>{item.created_at}</div>
+														<div className="date">{item.created_at}</div>
 													</div>
 												</div>
 												<p>{item.content}</p>
-												<div className={style.btnInfo}>
-													<div className={`${style.icBtn} ${style.icBtnLike} ${style.left}`}>
-														<span className={style.text}>{item.useful_count}</span>
+												<div className="btnInfo">
+													<div className={`$icBtn} $icBtnLike} $left}`}>
+														<span className="text">{item.useful_count}</span>
 													</div>
-													<div className={`${style.icBtn} ${style.icBtnMore} ${style.right}`}></div>
+													<div className={`$icBtn} $icBtnMore} $right}`}></div>
 												</div>
 											</li>
 										)
@@ -167,18 +167,18 @@ class details extends Component {
 								</ul>
 							</div>
 						</section>
-						<section className={style.subjectReviews}>
+						<section className="subjectReviews">
 							<h2>{this.state.content.title}的影评({this.state.content.reviews_count})</h2>
-							<div className={style.bd}>
-								<ul className={style.list}>
+							<div className="bd">
+								<ul className="list">
 									{this.state.content.popular_reviews.map((item) => {
 										let arr = () => {
 											let a = []
 											for (let i = 1; i <= item.rating.value; i++) {
-												a.push(<span key={i} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
+												a.push(<span key={i} className="ratingStar ratingStarMediumFull"></span>)
 											}
 											for (let i = item.rating.value + 1; i <= item.rating.max; i++) {
-												a.push(<span key={i} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+												a.push(<span key={i} className="ratingStar ratingStarMediumGray"></span>)
 											}
 											return a;
 										}
@@ -187,12 +187,12 @@ class details extends Component {
 												<a href={item.alt}>
 													<h3>{item.title}</h3>
 													<div>
-														<span className={style.username}>{item.author.name}</span>
-														<span className={style.ratingStars}>
+														<span className="username">{item.author.name}</span>
+														<span className="ratingStars">
 															{arr()}
 														</span>
 													</div>
-													<p className={style.abstract}>{item.summary.slice(0,76) + '...'}</p>
+													<p className="abstract">{item.summary.slice(0,76) + '...'}</p>
 												</a>
 											</li>
 										)
@@ -229,42 +229,42 @@ class details extends Component {
 			arr.push({ id: data.directors[0].id, name: data.directors[0].name, img: data.directors[0].avatars.large, position: '导演',alt:data.directors[0].alt }, ...a);
 			let arr1 = [];
 			if (data.rating.average <= (10 / 6 * 1).toFixed(1)) {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumGray"></span>)
 			} else if (data.rating.average > (10 / 6 * 1).toFixed(1) && data.rating.average <= (10 / 6 * 2).toFixed(1)) {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumGray"></span>)
 			} else if (data.rating.average > (10 / 6 * 2).toFixed(1) && data.rating.average <= (10 / 6 * 3).toFixed(1)) {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumGray"></span>)
 			}
 			else if (data.rating.average > (10 / 6 * 3).toFixed(1) && data.rating.average <= (10 / 6 * 4).toFixed(1)) {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumGray"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumGray"></span>)
 			} else if (data.rating.average > (10 / 6 * 4).toFixed(1) && data.rating.average <= (10 / 6 * 5).toFixed(1)) {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumGray}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumGray"></span>)
 			} else {
-				arr1.push(<span key={1} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={2} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={3} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={4} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
-				arr1.push(<span key={5} className={`${style.ratingStar} ${style.ratingStarMediumFull}`}></span>)
+				arr1.push(<span key={1} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={2} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={3} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={4} className="ratingStar ratingStarMediumFull"></span>)
+				arr1.push(<span key={5} className="ratingStar ratingStarMediumFull"></span>)
 			}
 			this.props.dispatch({
 				type: 'details/save',

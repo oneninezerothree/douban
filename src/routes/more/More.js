@@ -2,7 +2,7 @@
 /* eslint-disable no-redeclare */
 import React, { Component } from 'react';
 import Header from '../../components/header/Header.js';
-import more from './more.scss';
+import './more.scss';
 import fetchJSONP from 'fetch-jsonp';
 import { Link } from 'dva/router';
 
@@ -85,10 +85,10 @@ export default class More extends Component {
     xingxing(num){
         var xx = [];
         for(var i=0;i<num;i++){
-            xx.push(<span className={more.ratingstarsmallfull} key={i}></span>)
+            xx.push(<span className="ratingstarsmallfull" key={i}></span>)
         }
         for(var j=0;j<5-num;j++){
-            xx.push(<span className={more.ratingstarsmallgray} key={j+65}></span>)
+            xx.push(<span className="ratingstarsmallgray" key={j+65}></span>)
         }       
         return xx;
     }
@@ -98,29 +98,30 @@ export default class More extends Component {
             return (
                 <div>
                     <Header />
-                    <div id={more.moreapp}>
+                    <div className="more">
+                    <div id="moreapp">
                         <h1>{this.state.list.title}</h1>
-                        <section id={more.list} className={more.grid}> 
+                        <section id="list" className="grid"> 
                             {
                                 this.state.list.subjects.map((item,index) => {
                                     return (
-                                        <Link to={`/details/${item.id}`} className={more.item} key={index}>
-                                            <div className={more.cover}>
-                                                <div className={more.ratio3_4}>
-                                                    <img src={item.images.small} alt={item.title} data-x="1080" data-y="1560" className={more.imgshow} style={{"width": "100%"}} />
+                                        <Link to={`/details/${item.id}`} className="item" key={index}>
+                                            <div className="cover">
+                                                <div className="ratio3_4">
+                                                    <img src={item.images.small} alt={item.title} data-x="1080" data-y="1560" className="imgshow" style={{"width": "100%"}} />
                                                 </div>
                                             </div>
-                                            <div className={more.info}>
+                                            <div className="info">
                                                 <h3>{item.title}</h3>
-                                                <p className={more.rank}>
-                                                <span className={more.ratingstars} data-rating="4.7">
+                                                <p className="rank">
+                                                <span className="ratingstars" data-rating="4.7">
                                                     {
                                                         this.xingxing(parseInt(item.rating.stars/10)).map((item,index)=>{
                                                             return item
                                                         })
                                                     }
                                                     </span> 
-                                                    <span className={more.fen}>{item.rating.average}</span>
+                                                    <span className="fen">{item.rating.average}</span>
                                                 </p>
                                             </div>
                                         </Link>
@@ -128,6 +129,7 @@ export default class More extends Component {
                                 })
                             }
                         </section>
+                    </div>
                     </div>
                 </div>
             )
