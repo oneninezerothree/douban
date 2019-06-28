@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../../components/header/Header.js';
 import more from './more.scss';
 import fetchJSONP from 'fetch-jsonp';
+import { Link } from 'dva/router';
 
 export default class More extends Component {
 
@@ -103,7 +104,7 @@ export default class More extends Component {
                             {
                                 this.state.list.subjects.map((item,index) => {
                                     return (
-                                        <a href="###" className={more.item} key={index}>
+                                        <Link to={`/details/${item.id}`} className={more.item} key={index}>
                                             <div className={more.cover}>
                                                 <div className={more.ratio3_4}>
                                                     <img src={item.images.small} alt={item.title} data-x="1080" data-y="1560" className={more.imgshow} style={{"width": "100%"}} />
@@ -122,7 +123,7 @@ export default class More extends Component {
                                                     <span className={more.fen}>{item.rating.average}</span>
                                                 </p>
                                             </div>
-                                        </a>
+                                        </Link>
                                     )
                                 })
                             }

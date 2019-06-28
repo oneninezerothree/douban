@@ -1,29 +1,33 @@
-.moviepage{
+.movie {
+  .moviepage {
     max-width: 650px;
     padding-top: 47px;
     background: #fff;
     margin: 0 auto;
     overflow-x: hidden;
-}
-.moviecard{
-    margin: 0;
-}
-section:first-child {
-    padding-top: 10px;
-}
+  }
 
-section {
+  .moviecard {
+    margin: 0;
+  }
+
+  section:first-child {
+    padding-top: 10px;
+  }
+
+  section {
     margin: 0;
     overflow: hidden;
     background-color: #fff;
     margin-bottom: 20px;
     display: block;
-}
+  }
 
-section header {
+  section header {
     padding: 0 1.12rem;
-}
-section h2 {
+  }
+
+  section h2 {
     display: inline-block;
     min-width: 4em;
     margin-bottom: 0;
@@ -32,22 +36,25 @@ section h2 {
     padding-left: 0;
     padding-bottom: 0;
     font-size: 1.06rem;
-}
+  }
 
-h2 {
+  h2 {
     color: #aaa;
     margin: 0 0 15px;
     font-size: 15px;
-}
-section header a {
+  }
+
+  section header a {
     float: right;
     font-size: .9rem;
     line-height: 1.5rem;
-}
-section .sectioncontent {
+  }
+
+  section .sectioncontent {
     margin-bottom: -1.12rem;
-}
-.row {
+  }
+
+  .row {
     border-bottom: 1px solid #F2F2F2;
     padding: 15px 0 20px 0;
     width: 100%;
@@ -55,40 +62,43 @@ section .sectioncontent {
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
+  }
 
-.items {
+  .items {
     font-size: 0;
     white-space: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-}
-ul {
+  }
+
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-* {
-    -webkit-tap-highlight-color: rgba(255,0,0,0);
-}
-ul {
+  }
+
+  * {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+  }
+
+  ul {
     display: block;
-    list-style-type: disc;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
-}
+  }
 
-.item:first-child {
+  .item:first-child {
     margin-left: 1.12rem;
-}
-.item {
-    margin-left: 0.48rem;
-}
+  }
 
-.item {
+  .item {
+    margin-left: 0.48rem;
+  }
+
+  .item {
     display: inline-block;
     vertical-align: top;
     width: 100px;
@@ -98,33 +108,39 @@ ul {
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
-}
-.items>* {
+  }
+
+  .items>* {
     font-size: .94rem;
     white-space: normal;
-}
-.item a {
+  }
+
+  .item a {
     color: #111;
-}
-.itemposter {
+  }
+
+  .itemposter {
     width: 100%;
     overflow: hidden;
     background-size: cover;
     background-position: center;
-}
-.item:not(.item__celebrity .itemtitle) {
+  }
+
+  .item:not(.item__celebrity .itemtitle) {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-.item__movie .itemtitle {
+  }
+
+  .item__movie .itemtitle {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
-}
-.itemtitle {
+  }
+
+  .itemtitle {
     display: block;
     margin-top: .6rem;
     line-height: .94rem;
@@ -134,28 +150,35 @@ ul {
     max-width: 100%;
     word-wrap: normal;
     font-size: 14px;
-}
-.itemrating {
+  }
+
+  .itemrating {
     color: #aaa;
     line-height: .94rem;
     margin-top: .3rem;
     font-size: .72rem;
-}
-.ratingstars {
-    display: inline-block; 
-}
-.ratingstarsmallfull, .ratingstarsmallhalf, .ratingstarsmallgray {
+  }
+
+  .ratingstars {
+    display: inline-block;
+  }
+
+  .ratingstarsmallfull,
+  .ratingstarsmallhalf,
+  .ratingstarsmallgray {
     width: 10px;
     height: 10px;
     background-size: 10px 10px;
-}
-.ratingstars .ratingstar {
+  }
+
+  .ratingstars .ratingstar {
     display: inline-block;
     margin-right: 1px;
     background-color: transparent;
     background-repeat: no-repeat;
-}
-.ratingstarsmallfull {
+  }
+
+  .ratingstarsmallfull {
     display: inline-block;
     vertical-align: middle;
     margin-right: 1px;
@@ -165,13 +188,15 @@ ul {
     width: 10px;
     height: 10px;
     background-size: 10px 10px;
-}
-.itemposter:before {
+  }
+
+  .itemposter:before {
     content: "";
     float: left;
     margin-top: 142.85714%;
-}
-.ratingstarsmallgray{
+  }
+
+  .ratingstarsmallgray {
     display: inline-block;
     vertical-align: middle;
     margin-right: 1px;
@@ -181,29 +206,34 @@ ul {
     width: 10px;
     height: 10px;
     background-size: 10px 10px;
-}
-.clearfix:after, .card section>header:after {
+  }
+
+  .clearfix:after,
+  .card section>header:after {
     content: '';
     clear: both;
     display: block;
-}
-.interests ul {
+  }
+
+  .interests ul {
     white-space: nowrap;
     overflow-x: auto;
     padding: 15px 15px 43px 15px;
     font-size: 0;
     margin-left: -5px;
     -webkit-overflow-scrolling: touch;
-}
-.interests li {
+  }
+
+  .interests li {
     margin: 0 0 8px 8px;
     font-size: .94rem;
     display: inline-block;
     border-radius: .25rem;
     border: solid 1px;
     vertical-align: middle;
-}
-.interests a {
+  }
+
+  .interests a {
     height: 50px;
     line-height: 50px;
     padding: 0 1.55rem;
@@ -211,38 +241,53 @@ ul {
     overflow: auto;
     display: block;
     text-align: center;
-}
-.interests li.line {
+  }
+
+  .interests li.line {
     width: 100%;
     display: block;
     height: 1px;
     border: 0;
     margin: 0;
-}
-.types {
+  }
+
+  .types {
     margin-right: -25px;
-}
-.typelist {
+  }
+
+  .typelist {
     padding: 1.12rem 0 1.88rem;
     color: #eee;
     font-size: .9rem;
     overflow: hidden;
-}
-.typelist li {
+  }
+
+  .typelist li {
     width: 41.5%;
     border-top: solid 1px #eee;
     border-right: solid 1px #eee;
     float: left;
     padding-right: 1.12rem;
     height: 2.64rem;
+  }
+
+  .typelist li:nth-child(even) {
+    border-right: none;
+    padding-left: 1.12rem;
 }
-.typelist a {
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+  .typelist a {
     float: left;
     display: inline-block;
     width: 100%;
     line-height: 2.64rem;
-}
-.typelist span {
+  }
+
+  .typelist span {
     color: #ccc;
     float: right;
     font-weight: bold;
@@ -253,11 +298,14 @@ ul {
     height: .5rem;
     transform: rotate(-45deg);
     margin-top: 1rem;
-}
-.types .sectioncontent {
+  }
+
+  .types .sectioncontent {
     margin-left: .94rem;
-}
-.fen{
+  }
+
+  .fen {
     vertical-align: middle;
     margin-left: 3px;
+  }
 }

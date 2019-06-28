@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import '../../index.css';
 import style from './details.scss';
-import fetchJSONP from 'fetch-jsonp';
 import requires from '../../utils/require';
+import Header from '../header/Header';
 
 class details extends Component {
 	constructor(props, monthrd) {
@@ -14,6 +14,8 @@ class details extends Component {
 	render() {
 		if (this.state.content) {
 			return (
+				<div>
+				<Header />
 				<div className={style.page}>
 					<div className={style.card}>
 						<h1 className={style.title}>{this.state.content.title}</h1>
@@ -200,6 +202,7 @@ class details extends Component {
 						</section>
 					</div>
 				</div>
+				</div>
 			)
 		} else {
 			return '';
@@ -210,7 +213,9 @@ class details extends Component {
 	}
 	componentDidMount() {
 		// this.props.match.params.id
-		requires('https://api.douban.com/v2/movie/subject/'+ '25890017' +'?apikey=0b2bdeda43b5688921839c8ecb20399b', function (data) {
+		console.log(this.props.match.params.id);
+		var id = this.props.match.params.id
+		requires('https://api.douban.com/v2/movie/subject/'+ id +'?apikey=0b2bdeda43b5688921839c8ecb20399b', function (data) {
 			let a = data.casts.map((item) => {
 				return {
 					id: item.id,
