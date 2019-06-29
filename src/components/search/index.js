@@ -3,8 +3,8 @@ import { connect } from 'dva';
 import './search.css';
 import {Link} from 'dva/router';
 class search extends React.Component {
-constructor(){
-super()
+  constructor(props){
+super(props)
 this.state={
 	keyword:''
 }
@@ -56,7 +56,7 @@ return (
 		</ul>
 		<div className="navBottom">
 			<div className="nav-item">
-				<a className="toLogin" href="/#/login">登录豆瓣</a>
+				<a className="toLogin" href="/#/login">{this.props.details.isLogin?'退出登录':"登录豆瓣"}</a>
 			</div>
 			<div className="nav-item">
 				<a className="toPC">使用桌面版</a>

@@ -8,6 +8,7 @@ export default {
     performer: '',
     words: false,
     xin: '',
+    isLogin:false
   },
 
   subscriptions: {

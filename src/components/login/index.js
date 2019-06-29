@@ -13,7 +13,7 @@ class login extends React.Component {
 	}
 	this.login = this.login.bind(this);
 	}
-	
+
 render() {
 return (
 <div id="account">
@@ -40,7 +40,7 @@ return (
 				<div className="account-form-ft">
 					<div className="account-form-switch ">
 						<a className="login-label-account " onClick={()=>{
-							this.props.history.push({ pathname: "register"}) 
+							this.props.history.push({ pathname: "register"})
 
 						}}>去注册</a>
 					</div>
@@ -59,7 +59,16 @@ return (
 </div>
 )
 }
-	getUsername(val) {
+componentWillMount() {
+  this.props.dispatch({
+    type: 'details/save',
+    payload: {
+      isLogin: false,
+    }
+  })
+}
+
+  getUsername(val) {
           this.setState({
               username: val.target.value
           })
@@ -71,25 +80,46 @@ return (
 	    }
 		login(){
 			if(this.state.username&&this.state.psw){
-				axios
-					.get(`https://www.apiopen.top/login?key=00d91e8e0cca2b76f515926a36db68f5 &phone=${this.state.username}&passwd=${this.state.psw}`)
-					.then(response => {
-						console.log(response.data.msg);
-						if (response.data.msg === '成功!') {
-							console.log(response.data.data.name);
-							this.props.history.push( '/',null)
-						} else {
-							alert(response.data.msg);
-						}
-					})
-					.catch(error => {
-						console.log(error);
-					});
+				// axios
+				// 	.get(`https://www.apiopen.top/login?key=00d91e8e0cca2b76f515926a36db68f5 &phone=${this.state.username}&passwd=${this.state.psw}`)
+				// 	.then(response => {
+				// 		console.log(response.data.msg);
+				// 		if (response.data.msg === '成功!') {
+				// 			console.log(response.data.data.name);
+				// 			this.props.history.push( '/',null)
+				// 		} else {
+				// 			alert(response.data.msg);
+				// 		}
+				// 	})
+				// 	.catch(error => {
+				// 		console.log(error);
+				// 	});
+        axios({
+          method:'post',
+          url:'http://106.14.81.245:3100/loginRegister/login',
+          data:{
+            tel:this.state.username,
+            password:this.state.psw
+          }
+        }).then(res=>{
+          if (res.data.msg === '登录成功') {
+            this.props.dispatch({
+              type: 'details/save',
+              payload: {
+                isLogin: true,
+              }
+            })
+            this.props.history.push( '/PersonMsg',null)
+            		} else
+            		  {
+            			alert(res.data.msg);
+            		}
+        })
 			}else{
 				alert('账号或密码不能为空!');
 			}
 		}
-	
+
 }
 
 login.propTypes = {

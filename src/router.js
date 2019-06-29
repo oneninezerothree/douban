@@ -7,6 +7,7 @@ import login from './components/login';
 import register from './components/register';
 import search from './components/search';
 import searchDetails from './components/searchDetails';
+import PersonMsg from './components/PersonMsg'
 
 function RouterConfig({ history }) {
   return (
@@ -19,6 +20,7 @@ function RouterConfig({ history }) {
 				<Route path="/login" exact component={login} />
 				<Route path="/register" exact component={register} />
 				<Route path="/search" exact component={search} />
+				<Route path='/PersonMsg' exact component={PersonMsg} />
 				<Route path="/searchDetails/:keyword" exact component={searchDetails} />
       </Switch>
     </Router>

@@ -1,0 +1,161 @@
+.PersonMsg
+{
+
+}
+.PersonMsg>header{
+  height: 48px;
+  line-height: 48px;
+  padding: 0 10px;
+  display: flex;
+}
+.PersonMsg>header>span:nth-of-type(1)
+{
+  font-size: 24px;
+  font-weight: bold;
+  color: #00b600;
+  width: 50px;
+}
+.PersonMsg>header>div:nth-of-type(1)
+{
+  width: 130px;
+  padding-left: 10px;
+}
+.PersonMsg>header>div:nth-of-type(1)>img{
+  width: 30px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.PersonMsg>header>div:nth-of-type(2){
+  flex: 1;
+}
+.PersonMsg>header>div:nth-of-type(2)>span
+{
+  font-size: 12px;
+  color: white;
+  background: #00b600;
+  display: inline;
+  padding: 6px 16px;
+  border-radius: 5px ;
+}
+.PersonMsg>section{
+  display: flex;
+  height: 124px;
+  background: rgba(0, 0, 0, 0.62);;
+  border: 1px solid black;
+}
+.PersonMsg>section>div{
+ ;
+}
+.PersonMsg>section>div>span{
+  margin-top: calc(50% - 25px);
+  margin-left: calc(50% - 35px);
+  display: inline-block;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.PersonMsg>section>div:nth-of-type(1)
+{
+  width: 92px;
+}
+.PersonMsg>section>div:nth-of-type(2)
+{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.PersonMsg>section>div:nth-of-type(2)>div{
+  flex:1;
+
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)
+{
+  flex: 1.5;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)
+{
+  display: flex;
+  flex-direction: column;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)>p{
+
+  flex: 1;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(1)
+{
+  color: white;
+  font-size: 18px;
+  height: 30px;
+  line-height: 70px;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(2)
+{
+  color: white;
+  display: flex;
+  /*flex: 1;*/
+  border-bottom: 1px solid white;
+  height: 35px;
+  line-height: 35px;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(2)>span{
+  flex: 1;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(1)>p:nth-of-type(2)>span:nth-of-type(2)
+{
+  text-align: right;
+  padding-right: 20px;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(2)
+{
+  display: flex;
+  vertical-align: middle;
+  align-items:center;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(2)>span{
+  color: white;
+  font-size: 14px;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(2)>span:nth-of-type(1){
+  width: 80px;
+}
+.PersonMsg>section>div:nth-of-type(2)>div:nth-of-type(2)>span:nth-of-type(2)
+{
+  flex: 1;
+}
+.PersonMsg>div{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+}
+.PersonMsg>div>li{
+  /*flex: 1;*/
+  display: flex;
+
+  height: 100px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.PersonMsg>div>li>li{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  align-items:center
+}
+.PersonMsg>div>li>li>p{
+  flex: 1.8;
+
+  display: flex;
+  align-items:center;
+}
+.PersonMsg>div>li>li>p>img{
+  width: 26px;
+}
+.PersonMsg>div>li>li>span{
+
+  flex: 1;
+}
+/*.PersonMsg>div>li:last-of-type>li:last-of-type{*/
+/*  align-items:normal;*/
+/*}*/

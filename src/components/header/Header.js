@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import head from './header.scss';
 import { Link } from 'dva/router';
-
-export default class Header extends Component {
+import { connect } from 'dva';
+ class Header extends Component {
     render() {
         return (
             <header className="TalionNav">
@@ -14,10 +14,14 @@ export default class Header extends Component {
                         <span className="">
                             <Link to="/search"></Link>
                         </span>
-                        <Link to="/login">登录/注册</Link>
+                        <Link to="/login">{this.props.details.isLogin?'':'登录/注册'}</Link>
                     </nav>
                 </div>
             </header>
         )
     }
 }
+
+export default connect((state) => {
+  return state
+})(Header);
